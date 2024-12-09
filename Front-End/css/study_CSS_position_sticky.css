@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+      
+}
+
+.container {
+    background-color: rgb(55, 100, 196);
+    height: 120px;
+    width: 500px;
+    position: relative;
+    overflow: auto;    }
+
+
+
+.item-1 {
+    background-color: rgb(255, 193, 60);    
+    width: 120px;
+    height: 100px;    
+}
+
+.item-2 {
+    background-color: rgb(255, 115, 0);
+    width: 160px;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    opacity: 0.5;
+}
+
+.item-3 {
+    background-color: rgb(150, 55, 0);
+    width: 100px;
+    height: 160px;
+}
+
+
+
+
