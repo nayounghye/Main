@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>node form</title>
+  </head>
+  <style>
+    fieldset {
+      display: inline;
+    }
+
+    form {
+      position: relative;
+    }
+
+    input {
+    }
+  </style>
+  <body>
+    <fieldset>
+      <legend><h3>get 요청</h3></legend>
+      <form action="/get" method="get" name="sign-up-get" target="_blank">
+        ID : <input type="text" name="id" placeholder="아이디" value="jordy" />
+        <br />
+        <br />
+        PW :
+        <input type="password" name="pw" placeholder="비밀번호" value="1234" />
+        <br />
+        <br />
+        <!-- <input type="file" name="file" />
+        <br />
+        <br /> -->
+        <button type="submit" name="get-result">회원가입</button>
+      </form>
+    </fieldset>
+    <br />
+    <br />
+    <fieldset>
+      <legend><h3>post 요청</h3></legend>
+      <form action="/post" method="post" name="sign-up-post" target="_blank">
+        ID : <input type="text" name="id" placeholder="아이디" value="jordy" />
+        <br />
+        <br />
+        PW :
+        <input type="password" name="pw" placeholder="비밀번호" value="1234" />
+        <br />
+        <br />
+        <!-- <input type="file" name="file" />
+        <br />
+        <br /> -->
+        <button type="submit" name="post-result">회원가입</button>
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend><h3>유효성 검사</h3></legend>
+      <form action="/post/validation" method="post" name="sign-up-validation" target="_blank">
+        ID : <input type="text" name="id" placeholder="아이디" pattern="^([a-z0-9]$),{4,12}" value="jordy" />
+        <br />
+        <br />
+        PW : <input type="password" name="pw" placeholder="비밀번호" value="1234" />
+        <br />
+        <br />
+        <!-- <input type="file" name="file" />
+        <br />
+        <br /> -->
+        <button type="submit" name="post-result">회원가입</button>
+      </form>
+    </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- oninput : 이벤트를 걸어서 타자를 입력할 때마다 이벤트가 발생하도록 걸 수 있다. -->
+     <form action="/post/welcome" method="post">
+      ID:
+      <input
+        type="text"
+        name="id"
+        pattern="^([a-z0-9]$),{4,12}"
+        title="소문자, 숫자로 조합된 4~12자 문자열로 입력하세요."
+        required
+      />
+      PW: <input type="password" name="pw" oninput="vaildCheckPw(this)" />
+      <div id="error-pw"></div>
+      <br />
+      이름: <input type="text" name="name" />
+      이메일:
+      <input type="email" name="email" />
+      <br /><br />
+      <button type="submit">제출</button>
+    </form>
+  </fieldset>
+</body>
+<script>
+  console.dir(document.forms['login']);
+  // console.log(document.forms["login"])
+
+  function vaildCheckPw(el) {
+    const regexPw = /^([a-z0-9]$),{8,12}$/;
+    const value = el.value;
+    const error = document.getElementById('error-pw');
+    // regexPw.test("검사하고 싶은 값") => true/false return
+    if (regexPw.test(value)) {
+      error.innerHTML = '';
+      console.log('정규식 일치');
+    } else {
+      error.innerHTML = '소문자, 숫자로 조합된 8~12자리로 입력';
+      console.log('정규식 불일치');
+    }
+  }
+</script>
+  </body>
+</html>
